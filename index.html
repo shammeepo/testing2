@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shamyrul Haiqal · CV Portfolio</title>
+  <!-- Font Awesome (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fbf7f0;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      color: #1a2e2b;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 20px 40px rgba(20, 50, 45, 0.08);
+      border-radius: 2.5rem;
+      overflow: hidden;
+      padding: 2rem 2.5rem 3rem;
+      transition: all 0.2s ease;
+    }
+
+    @keyframes slideUpFade {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .profile-pic, .section {
+      animation: slideUpFade 0.8s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+      opacity: 0;
+    }
+
+    .hero { animation-delay: 0.05s; }
+    .profile-pic { animation-delay: 0.15s; }
+    .section-1 { animation-delay: 0.25s; }
+    .section-2 { animation-delay: 0.35s; }
+    .section-3 { animation-delay: 0.45s; }
+    .section-4 { animation-delay: 0.55s; }
+    .section-5 { animation-delay: 0.65s; }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #e5edea;
+    }
+
+    .profile-pic {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: #d9e7e2;
+      border: 4px solid #1e4a44;
+      box-shadow: 0 12px 24px -8px rgba(20, 60, 50, 0.2);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.02);
+      box-shadow: 0 18px 32px -10px #1e4a4460;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f2c27;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-text .tagline {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #2d5a53;
+      background: #eaf3f0;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 0.75rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-text p {
+      color: #2a4943;
+      max-width: 600px;
+      font-size: 1.05rem;
+    }
+
+    .btn-group {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      border: 2px solid #1e4a44;
+      color: #1e4a44;
+      font-weight: 600;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      background: white;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #1e4a44;
+      border: 2px solid #1e4a44;
+      color: #fbf7f0;
+    }
+
+    .btn-primary:hover {
+      background: #0f332e;
+      border-color: #0f332e;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 18px -8px #123b3560;
+    }
+
+    .btn-outline:hover {
+      background: #eaf3f0;
+      border-color: #1a3e38;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px -6px #1e4a4430;
+    }
+
+    .section {
+      margin-top: 2.8rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #0f2c27;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-left: 6px solid #1e4a44;
+      padding-left: 1.2rem;
+    }
+
+    .section-title i {
+      color: #1e4a44;
+      font-size: 1.5rem;
+      width: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: #f8fcfb;
+      padding: 1.5rem 1.5rem 1.8rem;
+      border-radius: 2rem;
+      box-shadow: 0 4px 12px rgba(20, 50, 40, 0.04);
+      transition: all 0.2s ease;
+      border: 1px solid #e4eeea;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #b6d2ca;
+      box-shadow: 0 18px 30px -12px rgba(20, 60, 50, 0.12);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: #143530;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card .sub {
+      color: #3a625a;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+
+    .card p, .card li {
+      color: #1d3d37;
+      font-size: 0.95rem;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .card ul li {
+      padding: 0.2rem 0 0.2rem 1.5rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "▹";
+      color: #1e4a44;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .badge {
+      background: #e2f0ec;
+      color: #0f2e29;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      border: 1px solid #b8d2ca;
+    }
+
+    .skill-item {
+      margin-bottom: 1rem;
+    }
+
+    .skill-item .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      color: #143530;
+      font-size: 0.95rem;
+    }
+
+    .skill-bar {
+      width: 100%;
+      height: 6px;
+      background: #dfece8;
+      border-radius: 20px;
+      margin-top: 4px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: #1e4a44;
+      border-radius: 20px;
+      width: 0%;
+    }
+
+    .exp-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed #d2e3de;
+      padding: 0.9rem 0;
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-title {
+      font-weight: 600;
+      color: #0f2c27;
+    }
+
+    .exp-org {
+      color: #1e4a44;
+      font-weight: 500;
+    }
+
+    .exp-date {
+      color: #3f6b62;
+      font-size: 0.85rem;
+      background: #eef7f4;
+      padding: 0.1rem 0.9rem;
+      border-radius: 40px;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .project-item {
+      background: #f5fbf9;
+      padding: 0.8rem 1.4rem;
+      border-radius: 60px;
+      display: inline-block;
+      border: 1px solid #dae9e4;
+      font-weight: 500;
+      color: #143530;
+      transition: all 0.15s;
+    }
+
+    .project-item i {
+      color: #1e4a44;
+      margin-right: 0.5rem;
+    }
+
+    .project-item:hover {
+      background: #e0f0eb;
+      border-color: #1e4a44;
+      transform: scale(1.01);
+    }
+
+    .ref-card {
+      background: #f2f9f6;
+      border-radius: 2rem;
+      padding: 1.2rem 2rem;
+      border-left: 6px solid #1e4a44;
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 1.5rem; }
+      .hero { flex-direction: column; align-items: center; text-align: center; }
+      .hero-text h1 { font-size: 2.2rem; }
+      .btn-group { justify-content: center; }
+      .section-title { font-size: 1.4rem; }
+      .profile-pic { width: 120px; height: 120px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 1rem; }
+      .project-item { display: block; text-align: center; }
+      .exp-item { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+    }
+
+    .mt-1 { margin-top: 0.5rem; }
+    .flex-wrap { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .text-muted { color: #3a655d; }
+    .fa-fw { width: 1.4rem; }
+
+    /* Loading indicator for download */
+    .btn-primary.loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO + PROFILE PHOTO -->
+  <div class="hero">
+    <div class="profile-pic">
+      <img src="sham diploma.jpg" alt="Profile photo of Muhammad Shamyrul Haiqal" width="140" height="140">
+    </div>
+    <div class="hero-text">
+      <h1>Muhammad Shamyrul Haiqal</h1>
+      <div class="tagline"><i class="fas fa-graduation-cap" style="margin-right: 0.4rem;"></i>Electronic Telecommunication Design · UniMAP</div>
+      <p>Passionate Electronic Engineering Technology student with a Diploma in Computer Engineering and current CGPA of 3.80. Skilled in digital system design, Verilog HDL, networking, website development, and technical problem-solving. Seeking opportunities in telecommunications, FPGA design, and embedded systems.</p>
+      <div class="btn-group">
+        <button class="btn btn-primary" id="downloadBtn" type="button"><i class="fas fa-file-pdf"></i> Download CV</button>
+        <a href="mailto:shammaster11@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> shammaster11@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: professional summary -->
+  <div class="section section-1">
+    <div class="section-title"><i class="fas fa-user-astronaut"></i> Profile</div>
+    <div style="background: #f4faf8; padding: 1.2rem 2rem; border-radius: 40px; color: #1a3a34;">
+      <p style="font-size: 1.05rem;">Passionate Electronic Engineering Technology student with a Diploma in Computer Engineering and current degree CGPA of 3.80. Skilled in digital system design, Verilog HDL, networking, website development, and technical problem-solving. Interested in telecommunications, FPGA design, embedded systems, and digital electronics. Seeking opportunities to apply engineering knowledge in real-world projects and industry environments.</p>
+    </div>
+  </div>
+
+  <!-- SECTION: education + certs 2-col -->
+  <div class="section section-2">
+    <div class="section-title"><i class="fas fa-university"></i> Education &amp; Certifications</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-graduation-cap" style="color: #1e4a44;"></i> Bachelor's Degree</h3>
+        <div class="sub">Electronic Engineering Technology (Hons.) — Electronic Telecommunication Design</div>
+        <p><i class="fas fa-calendar-alt" style="width: 1.2rem;"></i> March 2025 – November 2028</p>
+        <p><strong>Current CGPA: 3.80</strong></p>
+        <hr style="border-color: #dae9e4; margin: 0.8rem 0;">
+        <h3><i class="fas fa-graduation-cap" style="color: #1e4a44;"></i> Diploma</h3>
+        <div class="sub">Computer Engineering</div>
+        <p><i class="fas fa-calendar-alt" style="width: 1.2rem;"></i> July 2021 – November 2024</p>
+        <p><strong>CGPA: 2.52</strong></p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-trophy" style="color: #1e4a44;"></i> Certifications</h3>
+        <ul>
+          <li>CCNA: Introduction to Networks — Cisco (May 2023)</li>
+          <li>Crash Course on Python — Coursera (Dec 2025)</li>
+        </ul>
+        <h3 style="margin-top: 1.2rem;"><i class="fas fa-lightbulb" style="color: #1e4a44;"></i> Areas of Interest</h3>
+        <div class="badge-group">
+          <span class="badge">Digital System Design</span>
+          <span class="badge">Telecommunications</span>
+          <span class="badge">FPGA Development</span>
+          <span class="badge">Embedded Systems</span>
+          <span class="badge">Computer Networks</span>
+        </div>
+        <div style="margin-top: 1rem; background: #e4f0ec; padding: 0.4rem 1rem; border-radius: 60px; display: inline-block;">
+          <i class="fas fa-star" style="color: #1e4a44;"></i> Languages: Malay (Native), English (Professional)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: experience -->
+  <div class="section section-3">
+    <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+    <div class="card" style="padding: 0.8rem 1.8rem 1.5rem;">
+      <div class="exp-item">
+        <span><span class="exp-title">GuidePRO</span> <span class="exp-org">— Digital Marketing Intern</span></span>
+        <span class="exp-date">July 2024 – November 2024</span>
+      </div>
+      <ul style="margin-top: 0.2rem; list-style: none;">
+        <li style="padding: 0.15rem 0 0.15rem 1.6rem; position: relative;"><span style="position: absolute; left: 0; color: #1e4a44;">▹</span> Assisted in digital marketing campaigns and online advertising activities.</li>
+        <li style="padding: 0.15rem 0 0.15rem 1.6rem; position: relative;"><span style="position: absolute; left: 0; color: #1e4a44;">▹</span> Developed and maintained company websites using WordPress and Elementor.</li>
+        <li style="padding: 0.15rem 0 0.15rem 1.6rem; position: relative;"><span style="position: absolute; left: 0; color: #1e4a44;">▹</span> Created promotional materials and digital content.</li>
+        <li style="padding: 0.15rem 0 0.15rem 1.6rem; position: relative;"><span style="position: absolute; left: 0; color: #1e4a44;">▹</span> Supported campaign planning and digital marketing operations.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION: technical skills -->
+  <div class="section section-4">
+    <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-laptop-code"></i> Programming &amp; Development</h3>
+        <div class="skill-item"><span class="skill-label">Verilog HDL</span><div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div></div>
+        <div class="skill-item"><span class="skill-label">HTML / CSS / JavaScript</span><div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div></div>
+        <div class="skill-item"><span class="skill-label">Python</span><div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div></div>
+        <div style="margin-top: 0.5rem;">
+          <span class="badge">VS Code</span> <span class="badge">GitHub</span> <span class="badge">WordPress</span> <span class="badge">Elementor</span> <span class="badge">Canva</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-microchip"></i> Engineering Tools &amp; Knowledge</h3>
+        <div class="badge-group">
+          <span class="badge">Quartus Prime</span><span class="badge">ModelSim</span>
+        </div>
+        <div style="margin-top: 0.8rem;">
+          <span style="font-weight: 600; color: #143530;">Core Knowledge:</span>
+        </div>
+        <div class="badge-group" style="margin-top: 0.3rem;">
+          <span class="badge">Digital Logic Design</span><span class="badge">FSM Design</span><span class="badge">ALU Design</span>
+        </div>
+        <div class="badge-group" style="margin-top: 0.3rem;">
+          <span class="badge">Computer Architecture</span><span class="badge">Networking</span><span class="badge">Cybersecurity</span>
+        </div>
+        <div class="badge-group" style="margin-top: 0.3rem;">
+          <span class="badge">Telecommunications</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: projects -->
+  <div class="section section-5">
+    <div class="section-title"><i class="fas fa-project-diagram"></i> Projects</div>
+    <div class="project-list">
+      <div class="project-item"><i class="fas fa-elevator"></i> 16-bit Smart Elevator Control System — ALU, FSM &amp; Counter (Verilog HDL + ModelSim)</div>
+      <div class="project-item"><i class="fas fa-clock"></i> Digital Clock — Counters &amp; Sequential Logic (Verilog HDL + ModelSim)</div>
+      <div class="project-item"><i class="fas fa-tree"></i> Ornamental Tree E-Commerce Website — Customer &amp; Admin System (PHP + MySQL)</div>
+    </div>
+    <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+      <span class="badge" style="background: #cde3dd;">Digital Design</span>
+      <span class="badge" style="background: #cde3dd;">FPGA</span>
+      <span class="badge" style="background: #cde3dd;">Web Dev</span>
+      <span class="badge" style="background: #cde3dd;">Verilog</span>
+    </div>
+  </div>
+
+  <!-- SECTION: references -->
+  <div class="section" style="margin-top: 3rem;">
+    <div class="section-title"><i class="fas fa-address-card"></i> Reference</div>
+    <div class="ref-card">
+      <p style="font-weight: 600; font-size: 1.1rem;">Assoc. Prof. Ts. Dr. Wee Fwen Hoon</p>
+      <p>Head of Programme Telecommunication Engineering, Faculty of Electronic Engineering &amp; Technology, UniMAP</p>
+      <p><i class="fas fa-envelope" style="color:#1e4a44;"></i> fhwee@unimap.edu.my</p>
+    </div>
+    <div style="margin-top: 1.5rem; text-align: right; color: #3b6b62; font-size: 0.9rem; border-top: 1px solid #dae9e4; padding-top: 1rem;">
+      <i class="fas fa-flag"></i> Malay (Native) · English (Professional) &nbsp;|&nbsp; <i class="fas fa-map-pin"></i> Perlis, Malaysia
+    </div>
+  </div>
+
+</div> <!-- container -->
+
+<!-- html2pdf library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  // Wait for page to fully load before attaching click event
+  window.addEventListener('DOMContentLoaded', function() {
+    var downloadBtn = document.getElementById('downloadBtn');
+    
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', function() {
+        // Show loading state
+        downloadBtn.classList.add('loading');
+        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+        
+        var element = document.querySelector('.container');
+        var opt = {
+          margin:       0.3,
+          filename:     'Muhammad_Shamyrul_Haiqal_CV.pdf',
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  { scale: 2, useCORS: true, logging: false },
+          jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+        
+        html2pdf().set(opt).from(element).save().then(function() {
+          // Reset button after download
+          downloadBtn.classList.remove('loading');
+          downloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download CV';
+        }).catch(function(error) {
+          console.log('PDF generation failed:', error);
+          downloadBtn.classList.remove('loading');
+          downloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> Download CV';
+          alert('Download failed. Please try again or use Ctrl+P to save as PDF.');
+        });
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
